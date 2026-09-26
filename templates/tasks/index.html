@@ -1,0 +1,250 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Online Task Manager</title>
+
+    <link rel="stylesheet"
+          href="{% static 'css/style.css' %}">
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+
+    <header>
+
+        <h1>Online Task Manager</h1>
+
+        <p>
+            Create, manage and complete your tasks
+        </p>
+
+    </header>
+
+
+    <!-- ADD / UPDATE TASK -->
+
+    <section class="task-form-section">
+
+        <h2 id="form-title">
+            Add New Task
+        </h2>
+
+
+        <form id="task-form">
+
+            <input type="hidden"
+                   id="task-id">
+
+
+            <!-- TITLE -->
+
+            <div class="form-group">
+
+                <label for="title">
+                    Task Title
+                </label>
+
+                <input
+                    type="text"
+                    id="title"
+                    placeholder="Enter task title"
+                    required
+                >
+
+            </div>
+
+
+            <!-- DESCRIPTION -->
+
+            <div class="form-group">
+
+                <label for="description">
+                    Description
+                </label>
+
+                <textarea
+                    id="description"
+                    placeholder="Enter task description"
+                ></textarea>
+
+            </div>
+
+
+            <!-- PRIORITY + DATE -->
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="priority">
+                        Priority
+                    </label>
+
+                    <select id="priority">
+
+                        <option value="Low">
+                            Low
+                        </option>
+
+                        <option value="Medium" selected>
+                            Medium
+                        </option>
+
+                        <option value="High">
+                            High
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="due-date">
+                        Due Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="due-date"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- ERROR MESSAGE -->
+
+            <div id="error-message"
+                 class="error-message">
+            </div>
+
+
+            <!-- BUTTONS -->
+
+            <div class="button-group">
+
+                <button
+                    type="submit"
+                    class="btn primary">
+
+                    Add Task
+
+                </button>
+
+
+                <button
+                    type="button"
+                    id="cancel-btn"
+                    class="btn secondary"
+                    style="display: none;">
+
+                    Cancel
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </section>
+
+
+    <!-- TASK LIST -->
+
+    <section class="task-list-section">
+
+        <div class="task-header">
+
+            <h2>
+                My Tasks
+            </h2>
+
+
+            <!-- FILTER BUTTONS -->
+
+            <div class="filters">
+
+                <button
+                    class="filter-btn active"
+                    data-filter="all">
+
+                    All
+
+                </button>
+
+
+                <button
+                    class="filter-btn"
+                    data-filter="pending">
+
+                    Pending
+
+                </button>
+
+
+                <button
+                    class="filter-btn"
+                    data-filter="completed">
+
+                    Completed
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- SEARCH -->
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="search"
+                placeholder="Search tasks..."
+            >
+
+        </div>
+
+
+        <!-- TASKS WILL APPEAR HERE -->
+
+        <div id="task-container">
+
+            <p class="loading">
+                Loading tasks...
+            </p>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- JAVASCRIPT -->
+
+<script src="{% static 'js/script.js' %}">
+</script>
+
+</body>
+
+</html>
